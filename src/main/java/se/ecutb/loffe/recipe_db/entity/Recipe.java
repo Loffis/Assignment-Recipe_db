@@ -16,7 +16,7 @@ public class Recipe {
     @OneToMany(mappedBy = "recipe", orphanRemoval = true, fetch = FetchType.EAGER,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE}
     )
-    private List<RecipeIngredient> recipeIngredients = new ArrayList<>();
+    public List<RecipeIngredient> recipeIngredients = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "instruction_id")

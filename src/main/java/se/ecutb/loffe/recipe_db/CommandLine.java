@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import se.ecutb.loffe.recipe_db.data.*;
 import se.ecutb.loffe.recipe_db.entity.*;
+import se.ecutb.loffe.recipe_db.service.CreateCategory;
+import se.ecutb.loffe.recipe_db.service.CreateIngredient;
 
 @Component
 public class CommandLine implements CommandLineRunner {
@@ -15,6 +17,8 @@ public class CommandLine implements CommandLineRunner {
     private RecipeCategoryRepo recipeCategoryRepo;
     private RecipeIngredientRepo recipeIngredientRepo;
     private RecipeInstructionRepo recipeInstructionRepo;
+    private CreateIngredient createIngredient;
+    private CreateCategory createCategory;
 
     @Autowired
     public CommandLine(
@@ -22,13 +26,17 @@ public class CommandLine implements CommandLineRunner {
             RecipeRepo recipeRepo,
             RecipeCategoryRepo recipeCategoryRepo,
             RecipeIngredientRepo recipeIngredientRepo,
-            RecipeInstructionRepo recipeInstructionRepo
+            RecipeInstructionRepo recipeInstructionRepo,
+            CreateIngredient createIngredient,
+            CreateCategory createCategory
             ) {
         this.ingredientRepo = ingredientRepo;
         this.recipeRepo = recipeRepo;
         this.recipeCategoryRepo = recipeCategoryRepo;
         this.recipeIngredientRepo = recipeIngredientRepo;
         this.recipeInstructionRepo = recipeInstructionRepo;
+        this.createIngredient = createIngredient;
+        this.createCategory = createCategory;
     }
 
     @Override
@@ -74,5 +82,10 @@ public class CommandLine implements CommandLineRunner {
         //System.out.println(recipeRepo.findByCategoriesCategoryContainsIgnoreCase("go"));
         //System.out.println(recipeRepo.findRecipesByCategoriesWithQuery(Arrays.asList("frukost", "gott")));
 
+        System.out.println(createIngredient.createAndSave("banan"));
+        //System.out.println(createIngredient.createAndSave("Banan")); // Gives error! Which is correct.
+
+        System.out.println(createCategory.createAndSave("test category"));
+        System.out.println(createCategory.createAndSave("test category")); // no check for duplicates.
     }
 }

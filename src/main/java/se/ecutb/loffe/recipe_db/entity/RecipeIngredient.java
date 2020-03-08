@@ -39,6 +39,10 @@ public class RecipeIngredient {
         this(null, ingredient, amount, measurement, recipe);
     }
 
+    public RecipeIngredient(Ingredient ingredient, double amount, Measurement measurement) {
+        this(null, ingredient, amount, measurement, null);
+    }
+
     public RecipeIngredient(Ingredient ingredient) {
         this(null, ingredient, 0, null, null);
     }
