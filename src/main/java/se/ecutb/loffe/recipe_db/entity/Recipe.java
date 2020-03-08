@@ -44,6 +44,10 @@ public class Recipe {
         this(0, recipeName, recipeIngredients, instruction, categories);
     }
 
+    public Recipe(String recipeName) {
+        this(0, recipeName, null, null, null);
+    }
+
     public Recipe(){}
 
     public int getRecipeId() {

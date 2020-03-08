@@ -30,6 +30,10 @@ public class RecipeCategory {
         this(0, category, recipes);
     }
 
+    public RecipeCategory(String category) {
+        this(0, category, null);
+    }
+
     public RecipeCategory(){}
 
     public int getCategoryId() {
