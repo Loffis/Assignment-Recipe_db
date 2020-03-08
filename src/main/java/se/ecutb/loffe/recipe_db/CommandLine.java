@@ -7,8 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import se.ecutb.loffe.recipe_db.data.*;
 import se.ecutb.loffe.recipe_db.entity.*;
 
-import java.util.Arrays;
-
 @Component
 public class CommandLine implements CommandLineRunner {
 
@@ -70,11 +68,11 @@ public class CommandLine implements CommandLineRunner {
         //System.out.println(ingredientRepo.findByIngredientNameIgnoreCase("tomato"));
         //System.out.println(ingredientRepo.findByIngredientNameContainsIgnoreCase("ato"));
 
-        //System.out.println(recipeRepo.findByRecipeNameContainsIgnoreCase("banan"));
+        System.out.println(recipeRepo.findByRecipeNameContainsIgnoreCase("banan"));
         //System.out.println(recipeRepo.findByRecipeIngredientsIngredientIngredientNameContainsIgnoreCase("tomato"));
 
         //System.out.println(recipeRepo.findByCategoriesCategoryContainsIgnoreCase("go"));
-        System.out.println(recipeRepo.findRecipesByCategoriesWithQuery(Arrays.asList("frukost", "gott")));
+        //System.out.println(recipeRepo.findRecipesByCategoriesWithQuery(Arrays.asList("frukost", "gott")));
 
     }
 }
